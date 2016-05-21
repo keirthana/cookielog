@@ -5,14 +5,19 @@ Ingredients List
 {% endblock %}
 
 {% block content %}
-{% if messsages %}
+{% if messages %}
     {% for message in messages %}
-        <p>{{ message }}</p>
+        <div class="alert alert-success" role="alert">{{ message }}</div>
     {% endfor %}
-{% else %}
-No messages
 {% endif %}
-<h3>Ingredients</h3>
+<div class="row">
+    <div class="col-md-3">
+        <h3>List of Ingredients</h3>
+    </div>
+    <div class="col-md-2">
+        <a id="new-button" class="btn btn-primary btn-sm" href="{% url 'new_ingredient' %}"><span class="glyphicon glyphicon-plus"></span> Create New</a>
+    </div>
+</div>
 <ol>
     {% for ingredient in ingredients %}
         <li>{{ ingredient.name }}</li>

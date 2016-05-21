@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block page_title %}
-New ingredient
+New Item
 {% endblock %}
 
 {% block content %}
-<h3>Create new ingredient</h3>
+<h3>Create new item</h3>
 <form method="POST">{% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Submit</button>
-    <a class="btn btn-danger" href="{% url 'list_ingredients' %}">Cancel</a>
+    <a class="btn btn-danger" href="{% url 'list_items' %}">Cancel</a>
 </form>
 {% endblock %}

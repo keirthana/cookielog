@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+Items list
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert{% if message.tags %} alert-{{ message.tags }} {% endif %}" role="alert">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+<div class="row">
+    <div class="col-md-3">
+        <h3>List of Items</h3>
+    </div>
+    <div class="col-md-2">
+        <a id="new-button" class="btn btn-primary btn-sm" href="{% url 'new_item' %}"><span class="glyphicon glyphicon-plus"></span> Create New</a>
+    </div>
+</div>
+
+<ol>
+{% for item in items %}
+    <li>{{ item.name }}</li>
+{% endfor %}
+</ol>
+{% endblock %}
